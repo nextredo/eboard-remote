@@ -1,0 +1,10 @@
+Instructions:
+
+1. Place U8glib.zip to arduino library unzipped
+2. Open the program U8gLogo.ino
+
+
+Wiring:
+
+Six-pin SPI Com: SCK = 13, MOSI = 11, CS = 10, DC = 9
+Seven-pin SPI Com: SCK = 13, MOSI = 11, CS = 10, DC = 9 RES = RESTE

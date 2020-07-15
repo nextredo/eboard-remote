@@ -1,0 +1,8 @@
+UltraEdit syntax highlighting solutions - Don't have to open a new file every time to choose a view type.
+Enter ultraedit official website http://www.ultraedit.com/downloads/extras.html#wordfiles find the corresponding wordfiles, may be ctrl + f search, then right click save as, which is a .uew file (which is mainly some regular expressions).
+Then open ultraedit installation directory, if it is XP system, then by default C: \ Program Files \ IDM Computer Solutions \ UltraEdit
+If win7 system, then it should at C: \ Users \ Admin \ AppData \ Roaming \ IDMComp \ UltraEdit, because win7 permissions set very strict, so the file is installed under the current user.
+Open wordfiles directory, there is some software that comes installed a language pack, which is open in ultraedit, view ->All Languages View (highlighted file type) inside.
+Then copy the downloaded files from the site to the next wordfiles .uew directory, restart ultraedit. View ->Display mode (highlighted file
+
+

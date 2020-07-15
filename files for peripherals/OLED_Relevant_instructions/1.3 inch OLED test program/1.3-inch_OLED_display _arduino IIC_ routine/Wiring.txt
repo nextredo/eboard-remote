@@ -1,0 +1,9 @@
+Wiring:
+
+GND: Ground
+VCC: 3.3V or 5V
+CLK (D0): Connect A5
+DIN (D1): Connect A4
+RES: Connect high
+D / C: Connect ground
+CS: Connect ground

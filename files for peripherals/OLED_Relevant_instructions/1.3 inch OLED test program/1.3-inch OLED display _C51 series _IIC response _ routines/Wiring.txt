@@ -1,0 +1,10 @@
+Wiring instructions:
+?
+GND: Ground
+VCC: 3.3V or 5V
+D0 (SCL): P1 ^ 0
+D1 (SDA): P1 ^ 1
+
+RST (RES): Connect high
+DC (DC): Connect ground
+CS: Connect ground
