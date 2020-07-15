@@ -1,9 +1,16 @@
 #include <Arduino.h>
 
+#define onboardLED 2  // This is the ESP-12 LED (D4)
+#define NodeMCULED 16 // This is the NodeMCU LED (D0)
+// Both LEDs come equipped with a 470 ohm resistor
+
 void setup() {
-  // put your setup code here, to run once:
+  pinMode(onboardLED, HIGH);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  digitalWrite(onboardLED, HIGH);
+  delay(500);
+  digitalWrite(onboardLED, LOW);
+  delay(500);
 }
