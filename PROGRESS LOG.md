@@ -16,24 +16,24 @@ into my README file - probably not great practice
 - Using [this](https://github.com/brianlow/Rotary) one because it doesn't look tooooo complicated
 - couldn't get it to work with PIO, scratch that
 
-### No for real this time 
+### 3rd time's the charm 
 - [link to enjoyneering's repo](https://github.com/enjoyneering/RotaryEncoder)
 - Implemented the code from the ESP8266RotaryEncoderInterruptsSerial example .ino file
 - immediately caused the ESP8266 to bootloop
 	- trying to diagnose the problem by commenting out the new code and slowly adding it back in
 	- problem due to line `encoder.begin();`
-	- `encoder.begin();` causes the following to appear in the serial monitor:
+	- `encoder.begin();` causes the following to appear in the serial monitor
 	
 	
-	 ets Jan  8 2013,rst cause:4, boot mode:(3,7)
-
-	wdt reset
-	load 0x4010f000, len 3664, room 16
-	tail 0
-	chksum 0xee
-	csum 0xee
-	v39c79d9b
-	~ld
+		ets Jan  8 2013,rst cause:4, boot mode:(3,7)
+		wdt reset  
+		load 0x4010f000, len 3664, room 16  
+		tail 0  
+		chksum 0xee  
+		csum 0xee  
+		v39c79d9b  
+		~ld  
+	
 	
 	- This is a WDT reset, info about debugging them [here](https://arduino-esp8266.readthedocs.io/en/latest/faq/a02-my-esp-crashes.html#:~:text=Enable%20the%20Out%2DOf%2DMemory,showing%20up%20on%20each%20restart.)
 	- Information on boot modes [here](https://arduino-esp8266.readthedocs.io/en/latest/boards.html#boot-messages-and-modes)
@@ -51,14 +51,17 @@ with their pullup resistors on
 - It was found that by swapping the rotary encoder pins to pin 16, 21, 22 (GPIO 15, GPIO3 and GPIO1 respectively), the program operates fine
 	- Odd considering GPIO 1 & 3 are used for TX and RX, and thus UART / Serial communications
 
+
 - ESP seems to be happy when using pins 9, 10 and 14 (CMD, SD0 and CLK) (GPIO11, GPIO7 and GPIO6)
 - Resoldered `PIN_A`, `PIN_B` and `BUTTON` (CLK, DT and SW) to 9, 10 and 14
 - Didn't fix the issues, just changed them
 - Restarting `min.cpp` code to see if I can fix it there
 
+
 - Set code to literally only define pins and set them as inputs, still breaks if 12, 11 and 13 are used
 - Same story for 5, 6 and 7
 - and 5, 6, 17
+
 
 - Here's the story so far
 	- Works with just pin A (on pin 5) as input pullup

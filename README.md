@@ -22,7 +22,7 @@ Pin 16 (D0) = NodeMCU LED
 Both have 470 ohm resistor  
 *********************************************************************
 ### Screen
-[Screen I bought](https://www.banggood.com/1_3-Inch-4Pin-White-OLED-LCD-Display-12864-IIC-I2C-Interface-Module-p-1067874.html)
+[Screen I bought](https://www.banggood.com/1_3-Inch-4Pin-White-OLED-LCD-Display-12864-IIC-I2C-Interface-Module-p-1067874.html)  
 SSH1106 control chip (may or may not be the same as SH1106 chip)  
 128x64 resolution  
 1.3 inches (29.42 x 14.7mm)  
@@ -34,14 +34,10 @@ Black wire = GND
 Yellow wire = SCL  
 Blue wire = SDA  
 
-Device is initialised using U8G2_SH1106_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);  
-This is for the SH1106 driver which may or may not be the same as the SSH1106 driver (which might not actually exist)  
-for the U8g2 library found [here](https://github.com/olikraus/u8g2)  
-
 [OLED Relevant instructions](http://files.banggood.com/2016/07/banggood_OLED_Relevant_instructions.zip)
 *********************************************************************
 ### Rotary encoder
-[Encoder I bought](https://www.banggood.com/KEYES-360-Degree-Rotary-Encoder-Control-Module-Electronic-Building-Block-For-Micro-Bit-p-1400918.html)
+[Encoder I bought](https://www.banggood.com/KEYES-360-Degree-Rotary-Encoder-Control-Module-Electronic-Building-Block-For-Micro-Bit-p-1400918.html)  
 360 degree rotation + button  
 5 pin interface (CLK, DT, SW, +, GND)  
 

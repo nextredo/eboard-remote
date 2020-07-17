@@ -1,5 +1,6 @@
 ## Specialised Notes
 
+*********************************************************************
 ### Screen
 Exerpt from banggood's listing:  
 About control chip SSH1106:  
@@ -7,7 +8,11 @@ SSH1106 compatible with SSD1306 basic, difference is that SSH1106 control chip R
 The 1.3-inch OLED 128*64 dot matrix, so in the middle of the screen production took 128 row. When using SSD1306 program point SSH1106 screen, only need to change address to 0x02 row to start.  
 
 U8g2 code for rotating the screen  
-u8g2.setFlipMode(1)  
+`u8g2.setFlipMode(1)`  
+
+Device is initialised using `U8G2_SH1106_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);`  
+This is for the SH1106 driver which may or may not be the same as the SSH1106 driver (which might not actually exist)  
+for the U8g2 library found [here](https://github.com/olikraus/u8g2)  
 *********************************************************************
 ### Rotary enc
 NOTE: This might not be the best way to do it - using a library can let you have interrupts among other cool features
@@ -51,7 +56,7 @@ ask your IDE to do that some other way
 A generic test [link](http://example.com "Title") in markdown
 
 ### Reset debugging
-ESP.getResetReason()
+`ESP.getResetReason()`
 
 ### Floating pins
 If a pin is neither connected to GND or HIGH, it'll return random values based upon interference when digitalRead  

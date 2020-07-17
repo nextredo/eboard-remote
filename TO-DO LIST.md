@@ -9,7 +9,7 @@
 ### Progression
 - Fix WDT reset error
 	- enable OOM (out of memory) debugging in PIO
-- Figure out how to update ESP core (if that's a thing you can do)
+
 	
 - Potentiometer reading
 - ESP8266 WiFi testing
