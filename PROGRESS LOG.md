@@ -2,22 +2,22 @@
 Begun this progress log at about 7pm, realised I needed it as I'd just been dumping my notes and basic progress
 into my README file - probably not great practice
 - Also put a whole bunch of stuff into notes.md
-
 - Resoldered connector for rotary enc
 	- Swapped + & -
 	- Moved SW to D5 from VCC
 - Experimented with various libraries;
+
 ### Library 
-Decided to use [this](https://github.com/John-Lluch/Encoder) one since John talks a big game and I like it
+- Decided to use [this](https://github.com/John-Lluch/Encoder) one since John talks a big game and I like it
 - This is in the lib directory of my master eBoard-remote folder
 - Scratch that - not using this library as it won't work even with the sample code
 
 ### Actual library  
-Using [this](https://github.com/brianlow/Rotary) one because it doesn't look tooooo complicated
+- Using [this](https://github.com/brianlow/Rotary) one because it doesn't look tooooo complicated
 - couldn't get it to work with PIO, scratch that
 
 ### 3rd time's the charm 
-[link to enjoyneering's repo](https://github.com/enjoyneering/RotaryEncoder)
+- [link to enjoyneering's repo](https://github.com/enjoyneering/RotaryEncoder)
 - Implemented the code from the ESP8266RotaryEncoderInterruptsSerial example .ino file
 - immediately caused the ESP8266 to bootloop
 	- trying to diagnose the problem by commenting out the new code and slowly adding it back in
@@ -41,9 +41,9 @@ Using [this](https://github.com/brianlow/Rotary) one because it doesn't look too
 		- rst cause is a watchdog reset
 		- The 3 low bits of x in `boot mode:(x,y)` correspond to MTDO, GPIO0 and GPIO2 - [link](https://github.com/esp8266/esp8266-wiki/wiki/Boot-Process)
 			- 3 in binary is 011, corresponding to MTDO = 0, GPIO 0&2 = 1
-			- Means ESP8266 is booting in SPI Flash mode
-	
-	
+			- Means ESP8266 is booting in SPI Flash mode	
+
+*********************************************************************
 - tracing the `encoder.begin()` function to `RotaryEncoder.cpp` reveals that all it does is set the pins as inputs
 with their pullup resistors on
 - testing this code straight in void setup reveals that it still breaks it
@@ -64,5 +64,36 @@ with their pullup resistors on
 
 *********************************************************************
 - Here's the story so far
-	- Works with just pin A (on pin 5) as input pullup
-	- Works with just pin B (on pin 9) as input pullup
+	- Works somehow on 9, 10 and 14
+	- Works with the following code (so long as no pins are connected to VCC or GND)
+	```
+	#define onboardLED 2
+	volatile boolean ledON = false;
+
+	#define PIN_A 9
+	#define PIN_B 10
+	#define BUTTON 14 //17
+
+	#include <RotaryEncoder.h>
+	int16_t position = 0;
+	RotaryEncoder encoder(PIN_A, PIN_B, BUTTON);
+
+
+	void setup() {
+	  Serial.begin(115200);
+	  pinMode(onboardLED, OUTPUT);
+	  
+	  pinMode(PIN_A,      INPUT_PULLUP);
+	  pinMode(PIN_B,      INPUT_PULLUP);
+	  pinMode(BUTTON,     INPUT_PULLUP);
+	}
+
+	void loop() {
+	  Serial.println(millis());
+	  digitalWrite(onboardLED, HIGH);
+	  delay(150);
+	  digitalWrite(onboardLED, LOW);
+	  delay(150);
+	}
+	```
+	- 

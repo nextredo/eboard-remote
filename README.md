@@ -41,7 +41,7 @@ Blue wire = SDA
 360 degree rotation + button  
 5 pin interface (CLK, DT, SW, +, GND)  
 
-Pin listings:  
+Pin listings:
 - CLK = pin A = one of the yellow wires = D5 (pin 5)
 - DT = pin B = one of the yellow wires = D6 (pin 6)
 - SW = button pin = blue wire = D7 (pin 7)

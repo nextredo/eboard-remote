@@ -17,7 +17,7 @@ NOTE: This might not be the best way to do it - using a library can let you have
 also note that if you try to catch "ticks" in the main loop - if main takes too long then ticks will start to be missed
 and so code doesn't really work out well
 
-Info from [HowToMechatronics.com's rotary enc video](https://www.youtube.com/watch?v=v4BbSzJ-hz4&ab_channel=HowToMechatronics)  
+Info from [HowToMechatronics.com's rotary enc video](https://www.youtube.com/watch?v=v4BbSzJ-hz4&ab_channel=HowToMechatronics)
 - This is a 5 pin interface (incremental rotary encoder) (relative rotary encoder / quadrature encoder)
 - Literally the exact same one as in the video
 - A & B pins produce square waves - based upon contact of common pin C
@@ -30,7 +30,7 @@ Info from [HowToMechatronics.com's rotary enc video](https://www.youtube.com/wat
 - Can trigger on rising or falling edges, or level changes
 - When triggered: Exits from main loop, done some code stuff, then returns something back
 
-Notes from [educ8s.tv's interrupt video](https://www.youtube.com/watch?v=QtyOiTw0oQc&ab_channel=educ8s.tv)  
+### Notes from [educ8s.tv's interrupt video](https://www.youtube.com/watch?v=QtyOiTw0oQc&ab_channel=educ8s.tv)
 - Interrupts let the microprocessor respond to something while doing something else
 - ISR = interrupt service routine
 - Triggered on rising / falling edge of digital pins (interrupt pins) - almost every pin on ESP2866 (GPIO 0 - 15)
@@ -62,5 +62,8 @@ Prevent with pull-up or pull-down resistor
 
 ### ESP8266 vs ESP32
 I'm definitely buying an ESP32 next time
+
+### Arduino IDE ESP8266 Support
+Add this [link](http://arduino.esp8266.com/stable/package_esp8266com_index.json) to your "Additional Boards Manager URLs" under "Preferences"
 
 *********************************************************************
