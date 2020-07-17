@@ -1,5 +1,5 @@
-## 17/7/2020
-Begun this progress log at about 7pm, realised I needed it as I'd just been dumping my notes and basic progress
+## 17/07/2020
+Begun this progress log at about 7pm (finished about 1am the next day), realised I needed it as I'd just been dumping my notes and basic progress
 into my README file - probably not great practice
 - Also put a whole bunch of stuff into notes.md
 - Resoldered connector for rotary enc

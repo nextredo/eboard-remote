@@ -65,5 +65,3 @@ I'm definitely buying an ESP32 next time
 
 ### Arduino IDE ESP8266 Support
 Add this [link](http://arduino.esp8266.com/stable/package_esp8266com_index.json) to your "Additional Boards Manager URLs" under "Preferences"
-
-*********************************************************************
