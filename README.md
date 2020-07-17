@@ -16,7 +16,7 @@ Once coding is finished, it will have the following features:
 
 *********************************************************************
 ### Onboard LEDs
-[Info on LEDs](https://lowvoltage.github.io/2017/07/09/Onboard-LEDs-NodeMCU-Got-Two)
+[Info on LEDs](https://lowvoltage.github.io/2017/07/09/Onboard-LEDs-NodeMCU-Got-Two)  
 Pin 2 (D4) = ESP-12 LED  
 Pin 16 (D0) = NodeMCU LED  
 Both have 470 ohm resistor  

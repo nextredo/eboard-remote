@@ -1,11 +1,9 @@
 ## Specialised Notes
-
-*********************************************************************
 ### Screen
 Exerpt from banggood's listing:  
 About control chip SSH1106:  
-SSH1106 compatible with SSD1306 basic, difference is that SSH1106 control chip RAM space is 132*64, while SSD1306 space is 128*64.  
-The 1.3-inch OLED 128*64 dot matrix, so in the middle of the screen production took 128 row. When using SSD1306 program point SSH1106 screen, only need to change address to 0x02 row to start.  
+SSH1106 compatible with SSD1306 basic, difference is that SSH1106 control chip RAM space is 132\*64, while SSD1306 space is 128\*64.  
+The 1.3-inch OLED 128\*64 dot matrix, so in the middle of the screen production took 128 row. When using SSD1306 program point SSH1106 screen, only need to change address to 0x02 row to start.  
 
 U8g2 code for rotating the screen  
 `u8g2.setFlipMode(1)`  
@@ -53,7 +51,7 @@ ask your IDE to do that some other way
 - Easier to use once you understand it, bit of a learning curve though
 
 ### Hyperlinks in markdown
-A generic test [link](http://example.com "Title") in markdown
+Test [link](http://example.com "Title")
 
 ### Reset debugging
 `ESP.getResetReason()`
@@ -64,3 +62,5 @@ Prevent with pull-up or pull-down resistor
 
 ### ESP8266 vs ESP32
 I'm definitely buying an ESP32 next time
+
+*********************************************************************
