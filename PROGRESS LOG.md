@@ -1,3 +1,43 @@
+## 19/07/2020
+- Further testing encoder library code to see when interrupts are triggered versus when the output is "tripped"
+	- Doing anything generally leads to loads of triggers ocurring
+		- encoderISR triggering behaviour
+			- Triggers once on turning "onto" pin
+			- Triggers twice or once coming "off" pin
+		- encoderButtonISR behaviour
+			- Triggers once on button push down
+			- Triggers 4-5 times on button release
+	- Adding more capacitance to the button made it worse
+		- The extra 1uF cap in parallel made the ISRs more likely to interrupt the printing of PRESSED to the serial monitor
+	- [This link](https://www.best-microcontroller-projects.com/rotary-encoder.html) could be useful for debounce
+- Unrelated note: I'm going to re-organise my desk to make it a bit easier to debug this sort of stuff
+
+
+## 18/07/2020
+- Starting to think I'm using the wrong numbers to define my pins - requires further investigation
+	- Great resource about pin definitions by thehookup [here](https://github.com/thehookup/Wireless_MQTT_Doorbell/blob/master/GPIO_Limitations_ESP8266_NodeMCU.jpg) from [this video](https://www.youtube.com/watch?v=7h2bE2vNoaY&t=60s&ab_channel=TheHookUp)
+	- [There's one for the ESP32 too](https://github.com/thehookup/ESP32_Ceiling_Light/blob/master/GPIO_Limitations_ESP32_NodeMCU.jpg)
+	- Going to try using the GPIO numbers as definitions like he does in the video
+### AAAAAAAAAAAAAAAAAAAAAAHHHHHHHH
+- Turns out I was using the wrong numbers for the pins
+	- You're meant to use the GPIO number (GPIO2 for example) NOT the other little grey pin number
+- Resoldered A, B and BUTTON
+	- PIN_A = GPIO12 (D6)
+	- PIN_B = GPIO14 (D5)
+	- BUTTON = GPIO13 (D7)
+### Starting to work
+- Now the encoder is working, but the values are bouncing all over the place
+	- Only registers half the turn increments
+	- Registers far too many button presses
+- Adding a 100nF/0.1μF capacitor between each pin and GND like it says is req'd in the README
+	- Found some on an old circuit board and used those
+- Soldered 0.01μF caps to A and B, and a 0.1μF to BUTTON
+	- Somehow, this made it worse
+		- Button now triggers far more when pressed only once
+		- turning L and R barely registers unless I turn it super fast
+
+- Added some clamp probes to my multimeter - this is going to make things much easier
+
 ## 17/07/2020
 Begun this progress log at about 7pm (finished about 1am the next day), realised I needed it as I'd just been dumping my notes and basic progress
 into my README file - probably not great practice

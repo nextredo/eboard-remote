@@ -7,14 +7,10 @@
 
 *********************************************************************
 ### Progression
-Fix WDT reset error
-- Main issues
-	- Unpredictable refusal to run code if certain pins are declared as inputs
-	- Crashes and hangs once pins are bridged
-	- INPUT vs INPUT_PULLUP not having an effect on the floating voltages of the pins
-		- I think I just have to swap the encoder pins back to pins 5, 6, 7 and find a miracle way to make that work
+- 3x 100nF caps for the rotary encoder
 
-Down the track sometime
+### Down the track sometime
 - Potentiometer reading
 - ESP8266 WiFi testing
 - Pseudocode for whole remote
+- ESP8266 definitions file
