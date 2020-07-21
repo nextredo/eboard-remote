@@ -13,6 +13,8 @@ Once coding is finished, it will have the following features:
 - feature3
 - feature4
 
+- testing fixing the hook
+
 
 *********************************************************************
 ### Onboard LEDs
