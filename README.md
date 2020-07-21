@@ -8,10 +8,7 @@ Project uses a generic ESP8266 board for control hardware.
 
 Communicates with eBoard using the ESP8266's onboard WiFi chip.
 Once coding is finished, it will have the following features:
-- feature1
-- feature2
-- feature3
-- feature4
+- Features can be found in **MENU + FEATURES.md** file in the master directory
 
 
 *********************************************************************

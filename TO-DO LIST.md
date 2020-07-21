@@ -1,16 +1,20 @@
 ## Current to do:
 ### Important
-- ADC input capped at 1v
-	- Need voltage divider so pot doesn't damage the chip
-- Logic is 3.3v
-	- Connect rotary enc to 3.3v and pot too
+- ESP8266 board-to-board WiFi
+	- Check Google Drive for older project files on that
+- Menu structure
+- Features decision
+	- Find notebook with idea in it
 
 *********************************************************************
 ### Progression
-- 3x 100nF caps for the rotary encoder
+- Nothing for now
 
 ### Down the track sometime
-- Potentiometer reading
-- ESP8266 WiFi testing
 - Pseudocode for whole remote
 - ESP8266 definitions file
+- Arduino VESC interfacing
+- UI + menu design (splash screen?)
+- Basic functionality implementation
+- Advanced functionality implementation
+- Lower running average time length for encoder rotation
