@@ -2,6 +2,17 @@
 ##### See progress log for more in-depth project information
 - Coded by Kurtis Brandt in the year 2020
 
+*********************************************************************
+*********************************************************************
+### Only use true-fixed-master branch
+Pay absolutely no attention whatsoever to the other branches in this repository.  
+They all have outdated code - the branch being updated is true-fixed-master
+They were a series of cascading mistakes trying to fix the original mistake.  
+See 22/07/2020 in the progress log for more details.  
+Or don't.  
+*********************************************************************
+*********************************************************************
+
 Project uses a generic ESP8266 board for control hardware.
 - Espressif ESP8266 E-12 running Arduino.
 - Board I used linked [here](https://www.banggood.com/Geekcreit-NodeMcu-Lua-WIFI-Internet-Things-Development-Board-Based-ESP8266-CP2102-Wireless-Module-p-1097112.html)
