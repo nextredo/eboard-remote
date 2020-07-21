@@ -42,9 +42,9 @@ void main() {
 void buttonPressed() {
 	if(ledON) {
 		ledON = false;
-		digitalwrite(onboardLED, LOW);
+		digitalWrite(onboardLED, LOW);
 	} else {
 		ledON = true;
-		digitalwrite(onboardLED, HIGH);
+		digitalWrite(onboardLED, HIGH);
 	}
 }

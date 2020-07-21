@@ -1,94 +1,59 @@
 #include <Arduino.h>
+#include <ClickEncoder.h>
+//#include <TimerOne.h>
 
-//#define onboardLED 2  // This is the ESP-12 LED (D4)
-//#define NodeMCULED 16 // This is the NodeMCU LED (D0)
-// Both LEDs come equipped with a 470 ohm resistor -- https://lowvoltage.github.io/2017/07/09/Onboard-LEDs-NodeMCU-Got-Two
+#define ENCODER_PINA     12 //GPIO12 (D6 / pin 6)
+#define ENCODER_PINB     14 //GPIO14 (D5 / pin 5)
+#define ENCODER_BTN      13 //GPIO13 (D7 / pin 7)
 
+#define ENCODER_STEPS_PER_NOTCH    4   // Change this depending on which encoder is used
 
-// ----- Encoder code -----
-//#include <RotaryEncoder.h>
+ClickEncoder encoder = ClickEncoder(ENCODER_PINA,ENCODER_PINB,ENCODER_BTN,ENCODER_STEPS_PER_NOTCH);
 
-#define PIN_A 5//12//9//16//5  // CLK pin
-#define PIN_B 6//11//10//21//6  // DT pin
-#define BUTTON 17//13//14//22//7 // SW (button) pin
-// D8 used for boot process so don't use that pin
-
-//int16_t position = 0;
-//RotaryEncoder encoder(PIN_A, PIN_B, BUTTON);
-
-/*
-void ICACHE_RAM_ATTR encoderISR() { // interrupt service routines need to be in ram
-  encoder.readAB();
-}
-void ICACHE_RAM_ATTR encoderButtonISR() {
-  encoder.readPushButton();
-}
-*/
-
-
-
-//int testCount = 0;
 void setup() {
-  Serial.begin(115200); //always use this baud rate - it's the default (monitor_speed = 115200)
+  Serial.begin(115200);
+  
+  encoder.setButtonHeldEnabled(true);
+  encoder.setDoubleClickEnabled(true);
 
-  // encoder code
-  //encoder.begin(); // set encoders pins as input & enable built-in pullup resistors
-  // this function seems to break the ESP8266 - let's try by ourselves
-  pinMode(PIN_A,      INPUT_PULLUP);
-  pinMode(PIN_B,      INPUT_PULLUP);
-  pinMode(BUTTON,     INPUT_PULLUP);
-
-
-  //attachInterrupt(digitalPinToInterrupt(PIN_A),  encoderISR,       CHANGE);  // call encoderISR()        every high->low or low->high   changes
-  //attachInterrupt(digitalPinToInterrupt(BUTTON), encoderButtonISR, FALLING); // call encoderButtonISR()  every high->low                changes
+  // Enable the button to be on pin 0.  Normally pin 0 is not recognized as a valid pin for a button,
+  // this is to maintain backward compatibility with an old version of the library
+  // This version can have the button on pin zero, and this call enables the feature.
+  // in this version best to use pin -1 instead of 0 to disable button functions
+  encoder.setButtonOnPinZeroEnabled(true);
 }
 
-void loop() {  
-  /*
-  Serial.println(testCount++);
-  if(position != encoder.getPosition()) {
-    position = encoder.getPosition();
-    Serial.println(position);
+void loop() { 
+  //Call Service in loop becasue using timer interrupts may affect ESP8266 WIFI
+  //however call no more than 1 time per millisecond to reduce encoder bounce
+  static uint32_t lastService = 0;
+  if (lastService + 1000 < micros()) {
+    lastService = micros();                
+    encoder.service();  
+  }
+
+ 
+static int16_t last, value;
+    value += encoder.getValue();
+  
+  if (value != last) {
+    last = value;
+    Serial.print("Encoder Value: ");
+    Serial.println(value);
+
   }
   
-  if(encoder.getPushButton() == true) {
-    Serial.println(F("PRESSED"));         //(F()) saves string to flash & keeps dynamic memory free
-    testCount = 0;
+  ClickEncoder::Button b = encoder.getButton();
+  if (b != ClickEncoder::Open) {
+    Serial.print("Button: ");
+    #define VERBOSECASE(label) case label: Serial.println(#label); break;
+    switch (b) {
+      VERBOSECASE(ClickEncoder::Pressed);
+      VERBOSECASE(ClickEncoder::Held)
+      VERBOSECASE(ClickEncoder::Released)
+      VERBOSECASE(ClickEncoder::Clicked)
+      VERBOSECASE(ClickEncoder::DoubleClicked)
+    }
   }
-  */
-  Serial.println(millis());
-  delay(5);
+  //delay(5);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
