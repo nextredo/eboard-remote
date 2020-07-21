@@ -7,7 +7,8 @@
 	- I'd downloaded a zip file for an installer for a program called [Visuino](https://www.visuino.com/) which was about 133MB
 	- Apparently the [max file size](https://stackoverflow.com/questions/38768454/repository-size-limits-for-github-com#:~:text=Repositories%20have%20a%20hard%20size%20limit%20of%20100GB.&text=In%20addition%2C%20we%20place%20a%20strict%20maximum%20size%20limit%20of,a%20link%20to%20the%20repos.) for a single file on GitHub is 100MB
 		- Aaaaand since this file exceeded it, my computer would spend 10 minutes trying to upload the whole thing and then tell me it failed right at the end of it all
-	- I've messed around with this so much that time literally has no meaning now for these pushes
+- I've messed around with this so much that time literally has no meaning now for these pushes
+- Check out the image in assorted trash - it really shows how goofed this got
 
 
 ## 21/07/2020
