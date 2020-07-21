@@ -1,3 +1,48 @@
+## 21/07/2020
+### Library 1
+- Trying a new encoder library - found [here](https://github.com/PaulStoffregen/Encoder)
+	- More detailed information about it found [here](https://www.pjrc.com/teensy/td_libs_Encoder.html)
+- Uploaded the code and once again - our old friend the WDT reset rears its ugly head
+	- Trying adding `digitalPinToInterrupt()` to the header file's `attachInterrupt()` functions
+	- Apparently reset is caused by `rst cause:2` - ie the reset pin
+	- Giving up on this library - moving to another
+	
+### Library 2
+- Trying [this](https://github.com/dimircea/REncoder) one
+- Changed the following in `REncoderConfig.h`
+	- Uncommented `#define RENCODER_ENABLE_ENCODER_IRQ`
+	- Uncommented `#define RENCODER_ENABLE_SWITCH_IRQ`
+
+- To answer your question - of course it doesn't work
+	- This function here `attachSwitchHandler` somehow isn't defined, even though it is
+	- Using the file `REncoderWithSwitch.cpp`
+	
+- Ok so it turns out I had 2 copies of the library and I was defining things in the wrong one
+- New error is something about converting `'setup()::__lambda1' to 'void (*)(REncoderWithoutSwitch::Event, RENCODER_ROTATION_VALUE_TYPE) {aka void (*)(REncoderWithoutSwitch::Event, int)}'`
+	- I have literally 0 idea how to fix this so I'm just going to give up
+	- I should learn to code Arduino libraries so I can understand them better
+	
+### Library 3
+- [ClickEncoder](https://github.com/soligen2010/encoder)
+- And finally at last - one that works absolutely perfectly
+	- Software debouncing working like a dream
+	- Now that the encoder finally works properly - I'll start on the potentiometer, which shouldn't be too hard
+	- Velocity scaling of encoder rotation values has a bit too long of a running average time - might ened to tweak that a tad
+
+### Potentiometer
+- Wrote a small sketch to measure the potentiometer values
+	- Since it's already setup in the remote housing, it was pretty chill
+- Measurements for avg, max and min are below:
+	- Average value is 550 - 525
+		- 550 if coming from max reverse
+		- 525 if coming from max accel
+	- Max accel value is 412
+	- Max decel value is 615
+- All measured values very constant
+- Now that that's all sorted, I'm working on what's in the to do list
+	- First order of business is features and menu stuff
+	
+
 ## 19/07/2020
 - Further testing encoder library code to see when interrupts are triggered versus when the output is "tripped"
 	- Doing anything generally leads to loads of triggers ocurring
@@ -136,4 +181,3 @@ with their pullup resistors on
 	  delay(150);
 	}
 	```
-	- 
