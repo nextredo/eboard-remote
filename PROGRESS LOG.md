@@ -1,3 +1,29 @@
+## 24/07/2020
+- Tried to fix my laptop's WiFi adapter - failed
+- Still working on integrating encoder and screen
+	- Going to modify the library in the pio libs folder to see if I can get some action
+	- Having a further look into the ClickEncoder library makes me see that it's not the gift I thought it once was
+		- The only mention of interrupts is turning them off during an encoder reading, then turning them back on afterward
+		- Going to merge this `encoder.getValue()` code with the interrupt code from the `RotaryEncoder` library
+	- Going back to Brian Low's `Rotary` library
+		- Using [this](https://github.com/mathertel/RotaryEncoder) one instead as it looks a bit nicer
+		- These libraries don't work due to the way ISRs work on the Uno vs ESP8266
+	- Trying code from [this](https://mydiyelectronics.wordpress.com/2016/03/20/esp8266-rotary-encoder/) instead now
+		- [this](https://github.com/jonblack/arduino-fsm) could be useful later
+	- I think for now, I'm just going to use the polling from the ClickEncoder library
+		- Maybe later down the track I'll be able to get something more interrupty
+		- For now though, I'll just have to code everything else efficiently
+		- [This](https://www.instructables.com/id/Arduino-is-Slow-and-how-to-fix-it/) will be useful later
+
+## 23/07/2020
+- Focused on incorporating the encoder and screen together now
+- Figured out that my encoder code didn't entirely rely on interrupts for detection - which is what I wanted it to do
+	- Now I've gotta look though the example files and cobble something together
+	- I need to get a better understanding of timers so I can run the ISR for servicing the encoder
+		- Coding it in the ClickEncoder_test.ino file in code backups
+		- Important note, in one of the example files the author says that using a timer on the ESP8266 may affect it's WiFi capabilities
+			- So I won't be putting the service ISR in a timer
+
 ## 22/07/2020
 - Was experiencing MAJOR issues with pushing stuff to the GitHub page
 	- Something about a pre-hook error??

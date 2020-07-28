@@ -4,15 +4,16 @@
 		- Disconnect / brown-out
 		- Illegal values
 		- Low battery (remote or board)
-	- Heatbeat
+	- Heartbeat
 	- Bind to board
 - Modes
-	- High performance
 	- Eco
+	- Cruise
 	- Balanced
+	- Hi Pwr
 	
 *********************************************************************
-	
+
 - Settings
 	- Trigger
 		- Re-centre
@@ -21,6 +22,8 @@
 	- UI
 		- Contrast, brightness
 		- Screen rotation
+	- Board
+		- Speed cap
 	
 *********************************************************************
 
